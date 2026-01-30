@@ -1,0 +1,18 @@
+from tensorflow.keras.wrappers.scikit_learn import KerasRegressor
+from sklearn.model_selection import GridSearchCV
+
+def build_model(units=64):
+    m = Sequential([
+        LSTM(units, input_shape=X_train.shape[1:]),
+        Dense(1)
+    ])
+    m.compile(optimizer='adam', loss='mse')
+    return m
+
+model_cv = KerasRegressor(build_fn=build_model, epochs=10, batch_size=32)
+
+param_grid = {"units": [32, 64, 128]}
+grid = GridSearchCV(model_cv, param_grid, cv=3)
+grid.fit(X_train, y_train)
+
+print("Best Params:", grid.best_params_)
