@@ -10,3 +10,6 @@ The project includes robust data preprocessing, feature engineering, and hyperpa
 ✅ Conclusion 
 This project built an accurate time series forecasting model using deep learning techniques like LSTM and Transformer. Proper data preprocessing and tuning improved prediction performance.
 By using Explainable AI (SHAP/LIME), the model’s decisions became easy to understand and trustworthy. Overall, the system is reliable, interpretable, and suitable for real-world forecasting applications.
+
+✅ Summary 
+This project developed a deep learning–based time series forecasting system using **LSTM/Transformer models**. It includes data preprocessing, model training, evaluation, and explainability using **SHAP/LIME**. The system provides accurate and interpretable predictions, making it suitable for real-world applications.
