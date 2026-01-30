@@ -1,0 +1,11 @@
+from tensorflow.keras.layers import MultiHeadAttention, LayerNormalization, Input
+from tensorflow.keras.models import Model
+
+inp = Input(shape=X_train.shape[1:])
+x = MultiHeadAttention(num_heads=4, key_dim=32)(inp, inp)
+x = LayerNormalization()(x)
+x = Dense(32, activation='relu')(x)
+x = Dense(1)(x[:, -1])
+
+transformer = Model(inp, x)
+transformer.compile(optimizer='adam', loss='mse')
