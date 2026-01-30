@@ -1,1 +1,3 @@
 # Advanced-Time-Series-with-Deep-Learning-and-Explainability-LSTM-Transformer-
+Project Objective
+To design, train, and optimize a deep learning–based multivariate time series forecasting system using LSTM or Transformer architectures, while integrating explainable AI (XAI) techniques such as SHAP or LIME to interpret model predictions. The project aims to achieve high forecasting accuracy through robust preprocessing and hyperparameter tuning, and to provide transparent insights into how different variables and time steps influence predictions, enabling trustworthy and production-ready decision support systems.
