@@ -1,0 +1,10 @@
+import shap
+
+# Use small background set for speed
+background = X_train[np.random.choice(X_train.shape[0], 50, replace=False)]
+
+explainer = shap.DeepExplainer(model, background)
+shap_values = explainer.shap_values(X_test[:20])
+
+# Plot feature importance for last timestep
+shap.summary_plot(shap_values[0][:, -1, :], features.columns)
