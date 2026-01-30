@@ -1,0 +1,29 @@
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+
+# Example dataset (replace with real CSV)
+df = pd.read_csv("multivariate_ts.csv")   # columns: time, f1, f2, f3, target
+
+features = df.drop(columns=['target'])
+target = df['target']
+
+scaler_X = MinMaxScaler()
+scaler_y = MinMaxScaler()
+
+X_scaled = scaler_X.fit_transform(features)
+y_scaled = scaler_y.fit_transform(target.values.reshape(-1,1))
+
+# Create sequences
+def create_sequences(X, y, window=10):
+    Xs, ys = [], []
+    for i in range(len(X)-window):
+        Xs.append(X[i:i+window])
+        ys.append(y[i+window])
+    return np.array(Xs), np.array(ys)
+
+X_seq, y_seq = create_sequences(X_scaled, y_scaled, window=20)
+
+split = int(0.8 * len(X_seq))
+X_train, X_test = X_seq[:split], X_seq[split:]
+y_train, y_test = y_seq[:split], y_seq[split:]
